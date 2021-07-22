@@ -1,0 +1,53 @@
+
+<div class="container">
+<header class="nav">
+  <ul>
+    <li>
+  <button (click)="fun_winner()" class="getUsers" class="nav-button">GetWinners</button>
+    </li>
+    <li>
+      <button class="nav-button" (click)="toggle()">Get users</button>
+    </li>
+  </ul>
+</header>
+</div>
+  <div  *ngIf="show">
+    <table mat-table  class="mat-elevation-z8" [dataSource]='userss'>
+      <ng-container  matColumnDef="position">
+        <th mat-header-cell *matHeaderCellDef> No</th>
+        <td mat-cell *matCellDef="let item">{{item.id||json}}</td>
+      </ng-container>
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef> Name </th>
+        <td mat-cell *matCellDef="let item">{{item.name||json}}</td>
+      </ng-container>
+      <ng-container matColumnDef="age">
+        <th mat-header-cell *matHeaderCellDef> age </th>
+        <td mat-cell *matCellDef="let item">{{item.age||json}} </td>
+      </ng-container>
+      <ng-container matColumnDef="score">
+        <th mat-header-cell *matHeaderCellDef> score </th>
+        <td mat-cell *matCellDef="let item">{{item.score||json}} </td>
+        <td>  <app-button></app-button></td>
+      </ng-container>
+      <ng-container matColumnDef="Actions">
+        <th mat-header-cell *matHeaderCellDef>Action </th>
+        <td mat-cell *matCellDef="let winner"><button (click)="fun(winner)">Make winner</button></td>
+      </ng-container>
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr> -->
+      </table>
+      </div>
+      {{console.log("winner",winners)}}
+     <div>
+      
+       <ul *ngFor="let items of winners ">
+         <li>Name:{{items.name}}</li>
+         <li>Score:{{items.score}}</li>
+       </ul>
+     </div>
+    <button (click)="AboveFifty()">user Score Above 50</button>
+    {{console.log("array in html",arr)}}
+   <div *ngFor="let val of arr">
+   <span>{{val.name|json}}</span>
+   </div>
